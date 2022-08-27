@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import 'package:vertical_landing_page/ui/shared/custom_app_menu.dart';
 import 'package:vertical_landing_page/ui/views/about_view.dart';
 import 'package:vertical_landing_page/ui/views/contact_view.dart';
 
@@ -11,22 +13,23 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        decoration: buildBoxDecoration(),
         child: Stack(
           children: [
             _HomeBody(),
-            Positioned(
-                right: 20,
-                top: 20,
-                child: Container(
-                  width: 150,
-                  height: 50,
-                  color: Colors.black,
-                ))
+            Positioned(right: 20, top: 20, child: CustomAppMenu())
           ],
         ),
       ),
     );
   }
+
+  BoxDecoration buildBoxDecoration() => const BoxDecoration(
+      gradient: LinearGradient(
+          colors: [Colors.cyan, Colors.orange],
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          stops: [0.5, 0.5]));
 }
 
 class _HomeBody extends StatelessWidget {
