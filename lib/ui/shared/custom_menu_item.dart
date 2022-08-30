@@ -22,7 +22,7 @@ class _CustomMenuItemState extends State<CustomMenuItem> {
   @override
   Widget build(BuildContext context) {
     return FadeIn(
-      duration: Duration(milliseconds: 150),
+      duration: const Duration(milliseconds: 150),
       delay: Duration(milliseconds: widget.delay),
       child: MouseRegion(
         onEnter: (_) => setState(() => isHover = true),
@@ -33,7 +33,7 @@ class _CustomMenuItemState extends State<CustomMenuItem> {
             duration: const Duration(microseconds: 300),
             width: 150,
             height: 50,
-            color: isHover ? Colors.pinkAccent : Colors.black,
+            color: isHover ? Colors.pink[400] : Colors.black,
             child: Center(
               child: Text(
                 widget.text,
