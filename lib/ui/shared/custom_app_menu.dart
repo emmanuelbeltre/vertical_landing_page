@@ -47,11 +47,11 @@ class _CustomAppMenuState extends State<CustomAppMenu>
             children: [
               _MenuTitle(isOpen: isOpen, controller: controller),
               if (isOpen) ...[
-                CustomMenuItem(text: 'Home', onPressed: () {}),
-                CustomMenuItem(text: 'About', onPressed: () {}),
-                CustomMenuItem(text: 'Pricing', onPressed: () {}),
-                CustomMenuItem(text: 'Contact', onPressed: () {}),
-                CustomMenuItem(text: 'Location', onPressed: () {}),
+                CustomMenuItem(delay: 0, text: 'Home', onPressed: () {}),
+                CustomMenuItem(delay: 35, text: 'About', onPressed: () {}),
+                CustomMenuItem(delay: 70, text: 'Pricing', onPressed: () {}),
+                CustomMenuItem(delay: 105, text: 'Contact', onPressed: () {}),
+                CustomMenuItem(delay: 140, text: 'Location', onPressed: () {}),
                 const SizedBox(height: 8)
               ]
             ],
@@ -80,16 +80,16 @@ class _MenuTitle extends StatelessWidget {
       child: Row(
         children: [
           AnimatedContainer(
-            duration: Duration(milliseconds: 200),
+            duration: const Duration(milliseconds: 200),
             curve: Curves.easeInOut,
-            width: isOpen ? 50 : 0,
+            width: isOpen ? 45 : 0,
           ),
           Text('Menu',
               style: GoogleFonts.roboto(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
                   fontSize: 18)),
-          Spacer(),
+          const Spacer(),
           AnimatedIcon(
             icon: AnimatedIcons.menu_close,
             progress: controller,

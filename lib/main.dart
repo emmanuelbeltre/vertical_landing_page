@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:vertical_landing_page/router/router.dart';
-import 'package:vertical_landing_page/ui/pages/home_page.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatefulWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   State<MyApp> createState() => _MyAppState();
 }
