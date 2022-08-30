@@ -5,7 +5,7 @@ class LocationView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.orange,
+      color: Colors.orange[100],
       child: Center(
         child: FittedBox(
           child: Text(

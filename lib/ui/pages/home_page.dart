@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:vertical_landing_page/providers/page_provider.dart';
 
 import 'package:vertical_landing_page/ui/shared/custom_app_menu.dart';
 import 'package:vertical_landing_page/ui/views/about_view.dart';
@@ -17,7 +19,7 @@ class HomePage extends StatelessWidget {
         child: Stack(
           children: [
             _HomeBody(),
-            Positioned(right: 20, top: 20, child: CustomAppMenu())
+            const Positioned(right: 20, top: 20, child: CustomAppMenu())
           ],
         ),
       ),
@@ -35,7 +37,10 @@ class HomePage extends StatelessWidget {
 class _HomeBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final pageProvider = Provider.of<PageProvider>(context, listen: false);
+
     return PageView(
+      controller: pageProvider.scrollController,
       scrollDirection: Axis.vertical,
       children: [
         HomeView(),

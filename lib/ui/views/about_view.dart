@@ -5,7 +5,7 @@ class AboutView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.amber[200],
+      color: Colors.pink[300],
       child: Center(
         child: FittedBox(
           child: Text(

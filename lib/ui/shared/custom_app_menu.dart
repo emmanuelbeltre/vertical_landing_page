@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'package:vertical_landing_page/providers/page_provider.dart';
 import 'package:vertical_landing_page/ui/shared/custom_menu_item.dart';
 
 class CustomAppMenu extends StatefulWidget {
@@ -24,6 +26,8 @@ class _CustomAppMenuState extends State<CustomAppMenu>
 
   @override
   Widget build(BuildContext context) {
+    final pageProvider = Provider.of<PageProvider>(context);
+
     return MouseRegion(
       cursor: SystemMouseCursors.click,
       child: GestureDetector(
@@ -47,11 +51,26 @@ class _CustomAppMenuState extends State<CustomAppMenu>
             children: [
               _MenuTitle(isOpen: isOpen, controller: controller),
               if (isOpen) ...[
-                CustomMenuItem(delay: 0, text: 'Home', onPressed: () {}),
-                CustomMenuItem(delay: 35, text: 'About', onPressed: () {}),
-                CustomMenuItem(delay: 70, text: 'Pricing', onPressed: () {}),
-                CustomMenuItem(delay: 105, text: 'Contact', onPressed: () {}),
-                CustomMenuItem(delay: 140, text: 'Location', onPressed: () {}),
+                CustomMenuItem(
+                    delay: 0,
+                    text: 'Home',
+                    onPressed: () => pageProvider.goTo(0)),
+                CustomMenuItem(
+                    delay: 35,
+                    text: 'About',
+                    onPressed: () => pageProvider.goTo(1)),
+                CustomMenuItem(
+                    delay: 70,
+                    text: 'Pricing',
+                    onPressed: () => pageProvider.goTo(2)),
+                CustomMenuItem(
+                    delay: 105,
+                    text: 'Contact',
+                    onPressed: () => pageProvider.goTo(3)),
+                CustomMenuItem(
+                    delay: 140,
+                    text: 'Location',
+                    onPressed: () => pageProvider.goTo(4)),
                 const SizedBox(height: 8)
               ]
             ],
