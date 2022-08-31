@@ -40,7 +40,6 @@ class _CustomAppMenuState extends State<CustomAppMenu>
           setState(() {
             isOpen = !isOpen;
           });
-          print(isOpen);
         },
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 8.0),
